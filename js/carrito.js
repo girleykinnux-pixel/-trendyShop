@@ -127,3 +127,7 @@ function sumaTotal() {
 
   cartTotal.textContent = `$${total.toLocaleString()}`;
 }
+
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
