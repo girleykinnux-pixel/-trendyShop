@@ -1,6 +1,6 @@
 const addToCartButtons = document.querySelectorAll(".add-to-cart");
 const cartItemsContainer = document.getElementById("cartItems");
-const cartTotal = document.getElementById("cartTotal");
+const cartTotal = document.getElementById("sumaTotal");
 const checkoutBtn = document.getElementById("checkoutBtn");
 
 
@@ -131,3 +131,20 @@ function sumaTotal() {
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
+
+document.addEventListener("click", (event) => {
+  const button = event.target.closest(".btnAgregarC");
+
+  if (!button) return;
+
+  const producto = {
+    id: button.dataset.id,
+    name: button.dataset.name,
+    price: Number(button.dataset.price),
+    image: button.dataset.image,
+    quantity: 1
+  };
+
+  addProductToCart(producto);
+  openCart();
+});
