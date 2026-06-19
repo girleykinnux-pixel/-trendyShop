@@ -1,5 +1,10 @@
 <!doctype html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -46,6 +51,8 @@
     </header>
    
 
+    <main class="container my-5">
+        <h1 class="h3 fw-normal mb-4">Tienda</h1>
     <nav class="navbar bg-body-tertiary second-nav">
       <div class="container-fluid">
         <a class="navbar-brand" href="#"
@@ -119,6 +126,41 @@
             </ul>
 
 
+        <div class="row g-4" id="contenedor-productos"></div>
+    </main>
+
+    <template id="molde-tarjeta">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100 border-0 position-relative targeta-producto">
+                
+                <span class="position-absolute top-0 start-0 bg-dark text-white px-2 py-1 m-2 fw-bold etiqueta-descuento" style="font-size: 0.75rem;"></span>
+                
+                <div class="bg-light d-flex align-items-center justify-content-center p-3" style="height: 250px;">
+                    <img src="" class="img-fluid object-fit-contain imagen-producto" alt="">
+                </div>
+                
+                <div class="card-body p-2 d-flex flex-column text-center">
+                    <h5 class="card-title h6 fw-semibold mb-1 text-dark text-truncate titulo-producto"></h5>
+                    <p class="card-text text-muted small mb-2 text-truncate descripcion-producto"></p>
+                    
+                    <div class="mt-auto">
+                        <p class="mb-2">
+                            <span class="fw-bold text-dark precio-producto"></span>
+                        </p>
+                        <button class="btn btn-add-cart w-100 py-2 border-0 rounded-0">
+                            Añadir Al Carrito
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </template>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/productos.js"></script>
+</body>
+</html>
             
             <div id="cartItems"></div>
 
