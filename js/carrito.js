@@ -1,6 +1,6 @@
 const addToCartButtons = document.querySelectorAll(".add-to-cart");
 const cartItemsContainer = document.getElementById("cartItems");
-const cartTotal = document.getElementById("cartTotal");
+const cartTotal = document.getElementById("sumaTotal");
 const checkoutBtn = document.getElementById("checkoutBtn");
 
 
@@ -8,7 +8,7 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];//Crea o recupera el c
 
 addToCartButtons.forEach((button) => {
   button.addEventListener("click", () => { //click en cada producto
-    const product = {
+    const producto = {
       id: button.dataset.id,
       name: button.dataset.name,
       price: Number(button.dataset.price),
@@ -16,18 +16,18 @@ addToCartButtons.forEach((button) => {
       quantity: 1
     }; //convierte en objeto
 
-    addProductToCart(product);//lo llama 
+    addProductToCart(producto);//lo llama 
     openCart();//lo envia a carrito.html
   });
 });
 
-function addProductToCart(product) {
-  const ProductoExiste = cart.find((item) => item.id === product.id);
+function addProductToCart(producto) {
+  const ProductoExiste = cart.find((item) => item.id === producto.id);
     //revisa si el producto esta en el carrito
   if (ProductoExiste) {
     ProductoExiste.quantity++;
   } else {//si esta aumenta , sino agrega
-    cart.push(product);
+    cart.push(producto);
   }
 
   saveCart();
@@ -50,7 +50,7 @@ function renderCart() {
     const itemTotal = item.price * item.quantity; //calcula el precio por producto si hay mas de uno 
 
     cartItemsContainer.innerHTML += `
-      <div class="cart-product d-flex align-items-center mb-3">
+      <div class="cart-producto d-flex align-items-center mb-3">
         <img 
           src="${item.image}" 
           alt="${item.name}" 
@@ -92,20 +92,20 @@ function renderCart() {
 }
 
 function incrementoUnidades(id) {
-  const product = cart.find((item) => item.id === id);
+  const producto = cart.find((item) => item.id === id);
 
-  if (product) {
-    product.quantity++;
+  if (producto) {
+    producto.quantity++;
   }
 
   saveCart();
   renderCart();
 }
 function disminuirProductos(id) {
-  const product = cart.find((item) => item.id === id);
+  const producto = cart.find((item) => item.id === id);
 
-  if (product && product.quantity > 1) {
-    product.quantity--;//es mayor a 1, baja la cantidad
+  if (producto && producto.quantity > 1) {
+    producto.quantity--;//es mayor a 1, baja la cantidad
   } else {
     cart = cart.filter((item) => item.id !== id);// si es uno ,elimina el producto del carrito
   }
@@ -131,3 +131,20 @@ function sumaTotal() {
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
+
+document.addEventListener("click", (event) => {
+  const button = event.target.closest(".btnAgregarC");
+
+  if (!button) return;
+
+  const producto = {
+    id: button.dataset.id,
+    name: button.dataset.name,
+    price: Number(button.dataset.price),
+    image: button.dataset.image,
+    quantity: 1
+  };
+
+  addProductToCart(producto);
+  openCart();
+});
