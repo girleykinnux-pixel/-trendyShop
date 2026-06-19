@@ -135,168 +135,142 @@ footer i {
     transition: color 0.2s ease;
 }
 
+footer i {
+    color: var(--azul-oscuro) !important;
+    transition: color 0.2s ease;
+}
+
 footer i:hover {
     color: var(--verde-medio) !important;
-:root{
-    --primary: #A9D8B0;
-    --primary-dark: #8BC79A;
-    --secondary: #FFFFFF;
-    --dark: #111111;
-    --gray: #6B7280;
-    --light: #F8F9FA;
-    --shadow: rgba(0,0,0,0.08);
-}
+} /* <-- AQUÍ FALTABA ESTA LLAVE DE CIERRE */
 
 
-body{
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--light);
-    color: var(--dark);
-}
+/* ==========================================================================
+   ESTILOS COMPLEMENTARIOS PARA LA PÁGINA DE CONTACTO (RAMA FABIAN)
+   ========================================================================== */
 
-/* Header */
-
-.header-contacto{
+/* Estructura del Encabezado de Contacto */
+.header-contacto {
     text-align: center;
     padding: 50px 20px;
-    background: linear-gradient(
-        135deg,
-        #ffffff,
-        #f0f8f2
-    );
+    background: linear-gradient(135deg, #ffffff, #f0f8f2);
 }
 
-.hero-logo{
+.hero-logo {
     width: 280px;
     height: auto;
     margin-bottom: 20px;
 }
 
-.header-contacto h1{
+.header-contacto h1 {
     font-size: 3rem;
     color: var(--dark);
     margin-bottom: 10px;
 }
 
-.header-contacto p{
+.header-contacto p {
     color: var(--gray);
     max-width: 600px;
     margin: 0 auto;
 }
 
-
-
-.contact-container{
+/* Contenedor en Cuadrícula (Grid) */
+.contact-container {
     max-width: 1100px;
     margin: 50px auto;
     padding: 20px;
-
     display: grid;
     grid-template-columns: 1.5fr 2fr;
     gap: 30px;
 }
 
-/*Parte contacto*/
-
-.info-contacto{
+/* Bloque Lateral de Información de Contacto */
+.info-contacto {
     background: #A9D8B0;
     padding: 30px;
     min-height: 200px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px var(--shadow);
-    border-top: 5px solid var(--primary);
-
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-top: 5px solid #A9D8B0;
 }
 
-.info-contacto h2{
-    color: var(--dark);
+.info-contacto h2 {
+    color: #111111;
     margin-bottom: 20px;
 }
 
-.info-contacto p{
-    color: var(--gray);
+.info-contacto p {
+    color: #6B7280;
     margin-bottom: 10px;
 }
 
-/*Parte formulario*/
-
-.contactform{
+/* Formulario de Mensajes */
+.contactform {
     background: white;
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px var(--shadow);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-.contactform label{
+.contactform label {
     font-weight: 600;
-    color: var(--dark);
+    color: #111111;
 }
 
 .contactform input,
-.contactform textarea{
+.contactform textarea {
     width: 100%;
     padding: 12px;
     margin-top: 8px;
     margin-bottom: 20px;
-
     border: 1px solid #ddd;
     border-radius: 10px;
-
     box-sizing: border-box;
 }
 
 .contactform input:focus,
-.contactform textarea:focus{
+.contactform textarea:focus {
     outline: none;
-    border-color: var(--primary);
+    border-color: var(--verde-medio);
     box-shadow: 0 0 10px rgba(169,216,176,.4);
 }
 
-/* Botón */
-
-.contactform button{
+/* Botón de Envío */
+.contactform button {
     width: 100%;
-    background: var(--primary);
-    color: var(--dark);
-
+    background: var(--verde-oscuro);
+    color: white;
     border: none;
-
     padding: 15px;
-
     border-radius: 10px;
-
     font-size: 1rem;
     font-weight: 600;
-
     cursor: pointer;
-
     transition: .3s;
 }
 
-.contactform button:hover{
-    background: var(--primary-dark);
+.contactform button:hover {
+    background: var(--azul-oscuro);
     transform: translateY(-2px);
 }
 
-.fila{
+.fila {
     display: flex;
     gap: 20px;
     margin-bottom: 20px;
 }
 
-.campo{
-  flex: 1;
+.campo {
+    flex: 1;
     display: flex;
     flex-direction: column;
 }
-#mensaje{
+
+#mensaje {
     width: 100%;
     height: 250px;
     padding: 15px;
     border-radius: 10px;
     border: 1px solid #ddd;
     resize: none;
-}
 }
