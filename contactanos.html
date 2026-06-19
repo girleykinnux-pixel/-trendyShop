@@ -1,74 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contáctanos - TrendyShop</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link 
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
-      rel="stylesheet" 
-      integrity="sha384-sRI14kxILfVy47J16cr9ZwB07vP4J8+LH7qK9nuquIAvNWLzeN8tE5YBUjZqJLB" 
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-
-    <header class="header-contacto">
-
-        <img src="Logo 1 sin fondo.png" alt="Logo TrendyShop" class="hero-logo">
-
+    <header class="header-contacto"> 
+        <img src="Logo 1 sin fondo.png" alt="Logo TrendyShop" class="hero-logo mb-3">
         <h1>Contáctanos</h1>
-
-        <p>
-            Nuestro equipo está listo para ayudarte.
-            Responderemos tus consultas en el menor tiempo posible.
-        </p>
-
+        <p>Nuestro equipo está listo para ayudarte. Responderemos tus consultas en el menor tiempo posible.</p>
     </header>
-
-<main class="contact-container">
-
-    <div class="info-contacto">
-
-        <h2>Información de Contacto</h2>
-
-        <p>Bogotá, Colombia</p>
-
-        <p>+57 322 222 2222</p>
-
-        <p>contacto@trendyshop.com</p>
-
-    </div>
-
-    <form id="contactForm" class="contact-form">
-
-        <div class="fila">
-
-            <div class="campo">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre">
+    
+    <main class="container my-5">
+        <div class="row g-4">
+            
+            <div class="col-md-4">
+                <div class="info-contacto h-100">
+                    <h2>Información de contacto</h2>
+                    <p><strong>Ubicación:</strong> Bogotá, Colombia</p>
+                    <p><strong>Teléfono:</strong> +57 322 222 2222</p>
+                    <p><strong>Email:</strong> contacto@trendyshop.com</p>
+                </div>
             </div>
-
-            <div class="campo">
-                <label for="correo">Correo Electrónico</label>
-                <input type="email" id="correo">
+            
+            <div class="col-md-8">
+                <div class="contact-form-container">
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3 mb-md-0"> 
+                                <label for="nombre" class="form-label fw-bold">Nombre</label> 
+                                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu nombre">
+                            </div>
+                            <div class="col-md-6"> 
+                                <label for="correo" class="form-label fw-bold">Correo Electrónico</label> 
+                                <input type="email" id="correo" class="form-control" placeholder="tu@correo.com"> 
+                            </div>
+                        </div> 
+                        
+                        <label for="mensaje" class="form-label fw-bold mt-3">Mensaje</label> 
+                        <textarea id="mensaje" class="form-control" placeholder="¿En qué te podemos ayudar?"></textarea> 
+                        
+                        <button type="submit" class="btn-custom mt-4">Enviar Mensaje</button>
+                    </form>
+                </div>
             </div>
-
+            
         </div>
-
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" rows="5"></textarea>
-
-        <button type="submit">
-            Enviar Mensaje
-        </button>
-
-    </form>
-
-</main>
-
+    </main>
 </body>
+
 </html>
