@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Tu Carrito</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top border-bottom">
+            <div class="container-fluid px-5">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="./index.html">
+                    <img src="./assets/images/Logo.png" alt="Logo TrendyShop" height="35">
+                    <span class="fw-bold">TrendyShop</span>
+                </a>
+                
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav gap-3">
+                        <li class="nav-item"><a class="nav-link" href="./index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="./catalogo.html">Catálogo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./quienes-somos.html">Conócenos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./contactanos.html">Soporte</a></li>
+                    </ul>
+                </div>
+
+                <div class="d-flex align-items-center gap-3">
+                    <form class="d-flex" role="search">
+                        <input class="form-control form-control-sm me-2" type="search" placeholder="Buscar productos..." aria-label="Search">
+                        <button class="btn btn-outline-success btn-sm" type="submit"><i class="bi bi-search"></i></button>
+                    </form>
+                    
+                    <a href="#" class="btn btn-outline-light position-relative p-1 text-dark">
+                        <i class="bi bi-bag fs-5"></i>
+                        <span id="carrito-contador" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+<!-- MENÚ DE PASOS -->
+  <section class="checkout-steps-wrapper">
+    <div class="container">
+      <div class="checkout-steps">
+
+        <div class="step active">
+          <span class="step-number">1</span>
+          <span class="step-text">Carrito de compras</span>
+        </div>
+
+        <div class="step-line"></div>
+
+        <div class="step">
+          <span class="step-number">2</span>
+          <span class="step-text">Pago</span>
+        </div>
+
+        <div class="step-line"></div>
+
+        <div class="step">
+          <span class="step-number">3</span>
+          <span class="step-text">Opiniones</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+ <main class="container my-5 pt-5 pagina-carrito">
+
+  <h1 class="row">Carrito de compras</h1>
+
+  <section class="row g-4">
+    
+    <!-- COLUMNA IZQUIERDA: PRODUCTOS -->
+    <div class="col-12 col-lg-8">
+      <div class="bloque-carrito p-4">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 class="h4 mb-0">Tus productos</h2>
+          <span class="text-muted" id="cantidadProductosTexto">0 productos</span>
+        </div>
+
+        <!-- Aquí JS pinta los productos -->
+        <div id="checkoutItems"></div>
+
+      </div>
+    </div>
+
+    <!-- COLUMNA DERECHA: RESUMEN -->
+    <div class="col-12 col-lg-4">
+      <aside class="resumen-sticky">
+
+        <div class="bloque-resumen p-4 mb-3">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="h3 mb-0">Total</h2>
+            <strong class="total-destacado" id="checkoutTotal">$0</strong>
+          </div>
+
+          <div class="d-flex justify-content-between mb-3">
+            <span>Subtotal</span>
+            <strong id="checkoutSubtotal">$0</strong>
+          </div>
+
+          <div class="d-flex justify-content-between mb-3">
+            <span>Tarifa de envío</span>
+            <strong id="checkoutEnvio">Gratis</strong>
+          </div>
+
+          <div class="d-flex justify-content-between mb-3">
+            <span>Descuento</span>
+            <strong id="checkoutDescuento">$0</strong>
+          </div>
+
+          <hr>
+
+          <!-- CUPÓN 
+          <div class="cupon-box p-3 mb-3">
+            <label for="couponInput" class="form-label fw-semibold mb-2">
+              Cupón o descuento
+            </label>
+
+            <div class="d-flex gap-2">
+              <input
+                type="text"
+                id="couponInput"
+                class="form-control"
+                placeholder="Escribe tu cupón"
+              >
+              <button id="applyCouponBtn" class="btn btn-outline-dark">
+                Aplicar
+              </button>
+            </div>
+        
+
+            <small id="couponMessage" class="d-block mt-2 text-muted">
+              Usa por ejemplo: <strong>DESCUENTO10</strong>
+            </small>
+          </div>
+          -->
+
+          <button id="finalizarCompraBtn" class="btn btn-dark w-100 btn-pagar">
+            Pago
+          </button>
+        </div>
+
+      </aside>
+    </div>
+  </section>
+
+
+
+
+  <!-- RECOMENDADOS -->
+  <section class="mt-5">
+    <div class="titulo-recomendados text-center mb-4">
+      <span>Es posible que también te guste</span>
+    </div>
+<main class="container my-5">
+  <h1 class="h3 fw-normal mb-4">Tienda</h1>
+
+  <!-- Aquí JS mete los productos -->
+  <div class="row g-4" id="contenedor-productos"></div>
+    <template id="molde-tarjeta">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card h-100 border-0 position-relative tarjeta-producto">
+
+        <span
+          class="position-absolute top-0 start-0 bg-dark text-white px-2 py-1 m-2 fw-bold etiqueta-descuento"
+          style="font-size: 0.75rem;"
+        ></span>
+
+        <div
+          class="bg-light d-flex align-items-center justify-content-center p-3"
+          style="height: 250px;"
+        >
+          <img
+            src=""
+            class="img-fluid object-fit-contain imagen-producto"
+            alt=""
+          >
+        </div>
+
+        <div class="card-body p-2 d-flex flex-column text-center">
+          <h5 class="card-title h6 fw-semibold mb-1 text-dark text-truncate titulo-producto"></h5>
+
+          <p class="card-text text-muted small mb-2 text-truncate descripcion-producto"></p>
+
+          <div class="mt-auto">
+            <p class="mb-2">
+              <span class="fw-bold text-dark precio-producto"></span>
+            </p>
+
+            <button class="btn btn-add-cart w-100 py-2 border-0 rounded-0 btnAgregarC">
+              Añadir Al Carrito
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </template>
+
+ 
+  </section>
+</main>
+</main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/productos.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+      integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>
