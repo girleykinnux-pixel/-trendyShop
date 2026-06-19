@@ -2,7 +2,7 @@
 const cajaProductos = document.getElementById('contenedor-productos');
 const miPlano = document.getElementById('molde-tarjeta').content; // El molde invisible
 
-// 2. Link de la API para traer los 30 productos principales que quieren tus compañeras
+// 2. Link de la API para traer los 30 productos principales
 const apiTienda = 'https://dummyjson.com/products';
 
 // 3. Traer los datos de internet
