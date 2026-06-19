@@ -75,12 +75,6 @@ HEAD
     font-size: 0.65rem;
 }
 
-/*Segundo nav carrito*/
-.second-nav {
-  top: 56px;
-  z-index: 1030;
-}
-
 /* HERO Y PROPUESTAS DE VALOR */
 .hero-premium {
     background-color: var(--verde-claro);
