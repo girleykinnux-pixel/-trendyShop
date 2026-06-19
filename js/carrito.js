@@ -62,13 +62,13 @@ function renderCart() {
           <p class="mb-1">$${item.price.toLocaleString()}</p>
 
           <div class="d-flex align-items-center">
-            <button class="btn btn-sm btn-outline-dark" onclick="decreaseQuantity('${item.id}')">
+            <button class="btn btn-sm btn-outline-dark" onclick="disminuirProductos('${item.id}')">
               -
             </button>
 
             <span class="mx-2">${item.quantity}</span>
 
-            <button class="btn btn-sm btn-outline-dark" onclick="increaseQuantity('${item.id}')">
+            <button class="btn btn-sm btn-outline-dark" onclick="incrementoUnidades('${item.id}')">
               +
             </button>
           </div>
@@ -79,7 +79,7 @@ function renderCart() {
 
           <button 
             class="btn btn-sm btn-danger d-block mt-2" 
-            onclick="removeProduct('${item.id}')"
+            onclick="eliminarProducto('${item.id}')"
           >
             X
           </button>
@@ -88,7 +88,7 @@ function renderCart() {
     `;
   });
 
-  updateTotal();
+  sumaTotal();
 }
 
 function incrementoUnidades(id) {
@@ -100,4 +100,30 @@ function incrementoUnidades(id) {
 
   saveCart();
   renderCart();
+}
+function disminuirProductos(id) {
+  const product = cart.find((item) => item.id === id);
+
+  if (product && product.quantity > 1) {
+    product.quantity--;//es mayor a 1, baja la cantidad
+  } else {
+    cart = cart.filter((item) => item.id !== id);// si es uno ,elimina el producto del carrito
+  }
+
+  saveCart();
+  renderCart();
+}
+function eliminarProducto(id) {
+  cart = cart.filter((item) => item.id !== id);
+
+  saveCart();
+  renderCart();
+}
+
+function sumaTotal() {
+  const total = cart.reduce((sum, item) => {
+    return sum + item.price * item.quantity;
+  }, 0);
+
+  cartTotal.textContent = `$${total.toLocaleString()}`;
 }
