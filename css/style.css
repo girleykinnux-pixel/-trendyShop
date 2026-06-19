@@ -329,3 +329,77 @@ footer i:hover {
     color: var(--dark);
 }
 
+
+/* Stylos quienes somos" */
+.container1 {
+    max-width: 1800px;
+    width: 80%;
+    height: 95%;
+    background-color: var(--verde-claro);
+    border-radius: 25px;
+    text-align: center;
+    margin: 40px;
+}
+
+h1 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 75px;
+}
+
+h1:hover {
+    color: var(--verde-medio);
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 50px;
+    color: #52B788;
+}
+
+h2 {
+    animation: deslizar 1.5s ease-out forwards;
+}
+
+@keyframes deslizar {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+p {
+    font-size: 25px;
+    color: #111111;
+}
+
+img {
+    width: 120px;
+    height: 120px;
+}
+
+@keyframes flotar {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+img {
+    width: 120px;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+/*Fin stylos quenes somos*/
