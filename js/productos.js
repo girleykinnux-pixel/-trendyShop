@@ -2,8 +2,9 @@
 const cajaProductos = document.getElementById("contenedor-productos");
 const miPlano = document.getElementById("molde-tarjeta").content; // El molde invisible
 
-// 2. Link de la API para traer los 30 productos principales que quieren tus compañeras
-const apiTienda = "https://dummyjson.com/products";
+// 2. Link de la API para traer los 30 productos principales
+const apiTienda = 'https://dummyjson.com/products';
+
 
 // 3. Traer los datos de internet
 fetch(apiTienda)
@@ -37,8 +38,10 @@ fetch(apiTienda)
       botonAgregar.dataset.image = item.thumbnail;
       // Colgamos la tarjeta lista en la pantalla
       cajaProductos.appendChild(copiaTarjeta);
+ 
+        });
+    })
+    .catch(error => {
+        console.error('Hubo un problema al cargar la tienda:', error);
     });
-  })
-  .catch((error) => {
-    console.error("Hubo un problema al cargar la tienda:", error);
-  });
+
