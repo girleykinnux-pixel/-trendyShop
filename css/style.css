@@ -280,3 +280,62 @@ footer i:hover {
     border: 1px solid #ddd;
     resize: none;
 }
+
+
+/*pagina carrito*/
+.checkout-steps-wrapper {
+  background: white;
+  padding: 35px 0;
+  border-bottom: 1px solid var(--gris-borde);
+}
+
+.checkout-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--texto-suave);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.step.active {
+  color: var(--azul-oscuro);
+}
+
+.step-number {
+  width: 42px;
+  height: 42px;
+  border: 3px solid var(--gris-borde);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--texto-suave);
+  background: white;
+}
+
+.step.active .step-number {
+  background: var(--azul-oscuro);
+  border-color: var(--azul-oscuro);
+  color: white;
+}
+
+.step-text {
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.step-line {
+  width: 330px;
+  height: 1px;
+  background: var(--gris-borde);
+}

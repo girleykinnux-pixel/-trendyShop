@@ -3,7 +3,6 @@ const cartItemsContainer = document.getElementById("cartItems");
 const cartTotal = document.getElementById("sumaTotal");
 const checkoutBtn = document.getElementById("checkoutBtn");
 
-
 let cart = JSON.parse(localStorage.getItem("cart")) || [];//Crea o recupera el carrito 
 
 addToCartButtons.forEach((button) => {
@@ -21,6 +20,8 @@ addToCartButtons.forEach((button) => {
   });
 });
 
+
+
 function addProductToCart(producto) {
   const ProductoExiste = cart.find((item) => item.id === producto.id);
     //revisa si el producto esta en el carrito
@@ -32,6 +33,7 @@ function addProductToCart(producto) {
 
   saveCart();
   renderCart();
+  actualizarContadorCarrito();
 }
 
 function renderCart() {
@@ -148,3 +150,28 @@ document.addEventListener("click", (event) => {
   addProductToCart(producto);
   openCart();
 });
+
+
+
+if (checkoutBtn) {
+  checkoutBtn.addEventListener("click", () => {
+    if (cart.length === 0) {
+      alert("Tu carrito está vacío");
+      return;
+    }
+
+    window.location.href = "./Carrito.html";
+  });
+}
+
+function actualizarContadorCarrito() {
+  const contador = document.getElementById("carrito-contador");
+
+  if (!contador) return;
+
+  const cantidadTotal = cart.reduce((total, producto) => {
+    return total + producto.quantity;
+  }, 0);
+
+  contador.textContent = cantidadTotal;
+}
