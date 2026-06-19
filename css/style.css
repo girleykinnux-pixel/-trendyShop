@@ -1,8 +1,140 @@
+:root {
+    --verde-oscuro: #2D6A4F;
+    --verde-medio: #52B788;
+    --azul-oscuro: #1B4332;
+    --verde-claro: #F2FAF4;     
+    --gris-borde: #E5E5E5;
+    --texto-suave: #575757;
+}
 
-/*Carrito de compra nav*/
+/* CONFIGURACIÓN GENERAL ESTILO MINIMALISTA */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #222222;
+    letter-spacing: 0.03em;
+}
 
+.tracking-wider {
+    letter-spacing: 0.15em !important;
+}
 
-.second-nav {
-  top: 56px;
-  z-index: 1030;
+/*  SECCIÓN NAVBAR */
+.navbar {
+    background-color: #ffffff !important; 
+    border-bottom: 1px solid var(--gris-borde) !important;
+    padding: 0.5rem 0 !important;
+    min-height: auto;
+}
+
+.navbar-brand {
+    color: var(--azul-oscuro) !important;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    padding: 0;
+}
+
+.navbar-brand img {
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+/* Efecto sutil al pasar el mouse por el logo */
+.navbar-brand:hover img {
+    transform: scale(1.05);
+}
+
+.navbar .nav-link {
+    color: var(--texto-suave) !important;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    padding: 0.25rem 1rem !important;
+    transition: color 0.2s ease;
+}
+
+.navbar .nav-link:hover, 
+.navbar .nav-link.active {
+    color: var(--verde-oscuro) !important;
+}
+
+/* Icono del Carrito Minimalista */
+.navbar .btn-outline-light {
+    border: none;
+    color: var(--azul-oscuro);
+    font-size: 1.2rem;
+}
+.navbar .btn-outline-light:hover {
+    background-color: transparent;
+    color: var(--verde-medio);
+}
+#carrito-contador {
+    background-color: var(--verde-oscuro) !important;
+    font-size: 0.65rem;
+}
+
+/* HERO Y PROPUESTAS DE VALOR */
+.hero-premium {
+    background-color: var(--verde-claro);
+    min-height: 70vh; 
+    position: relative;
+}
+
+.hero-premium .content-box {
+    background-color: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-premium-dark {
+    background-color: var(--azul-oscuro);
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.9rem 2.5rem;
+    border-radius: 0; 
+    transition: all 0.3s ease;
+    border: 1px solid var(--azul-oscuro);
+}
+
+.btn-premium-dark:hover {
+    background-color: transparent;
+    color: var(--azul-oscuro);
+}
+
+main .bi {
+    color: var(--verde-oscuro) !important;
+}
+main h3 {
+    font-size: 0.85rem !important;
+    color: var(--azul-oscuro);
+}
+
+/* FOOTER*/
+footer {
+    background-color: #ffffff !important;
+    border-top: 1px solid var(--gris-borde);
+}
+
+footer .header-links a {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--texto-suave) !important;
+    transition: color 0.2s ease;
+}
+
+footer .header-links a:hover {
+    color: var(--verde-oscuro) !important;
+}
+
+footer i {
+    color: var(--azul-oscuro) !important;
+    transition: color 0.2s ease;
+}
+
+footer i:hover {
+    color: var(--verde-medio) !important;
 }
